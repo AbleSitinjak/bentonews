@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /berita-ps5/
+
+# Aturan untuk halaman baca berita
+RewriteRule ^berita/([a-zA-Z0-9-]+)$ baca.php?slug=$1 [L]
+
+# Mengarahkan semua request lain yang bukan file/direktori ke index.php (opsional)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
